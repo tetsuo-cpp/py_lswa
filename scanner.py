@@ -21,15 +21,15 @@ def scan():
                 '_id': 2,
                 'contents': 'a',
             }
-            result = lswa.replace_one({'_id': 1}, doc1)
+            result = lswa.replace_one({'_id': 1}, doc1, session=session)
             assert result.matched_count == 1
-            result = lswa.replace_one({'_id': 2}, doc2)
+            result = lswa.replace_one({'_id': 2}, doc2, session=session)
             assert result.matched_count == 1
 
             counter = 0
             while True:
                 id_val = random.randint(1, 10000)
-                doc = lswa.find_one({'_id': id_val})
+                doc = lswa.find_one({'_id': id_val}, session=session)
                 counter += 1
                 if counter % 1000 == 0:
                     print(counter)
