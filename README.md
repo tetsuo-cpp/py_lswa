@@ -4,5 +4,5 @@
 ```
 $ virtualenv -p python3 .ve/
 $ source .ve/bin/activate
-$ python lswa
+$ python lswa.py
 ```
